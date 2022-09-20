@@ -39,7 +39,7 @@ class MahasiswaController extends BaseController
         ])){
             return redirect()->to('/mahasiswa/create');
         }
-        $mahasiswa_model = new Mahasiswa();
+        $mahasiswa_model = new MahasiswaModel();
         $data = [
             'npm' => $this->request->getPost('npm'),
             'nama' => $this->request->getPost('nama'),
@@ -52,7 +52,7 @@ class MahasiswaController extends BaseController
 
     public function delete($id)
     {
-        $mahasiswa_model = new Mahasiswa();
+        $mahasiswa_model = new MahasiswaModel();
         $mahasiswa_model->delete($id);
 
         return redirect()->to('/mahasiswa');
@@ -60,7 +60,7 @@ class MahasiswaController extends BaseController
 
     public function edit($id)
     {
-        $mahasiswa_model = new Mahasiswa();
+        $mahasiswa_model = new MahasiswaModel();
         $mahasiswa = $mahasiswa_model->find($id);
 
         $data = [
@@ -81,7 +81,7 @@ class MahasiswaController extends BaseController
         ])){
             return redirect()->to('/mahasiswa/edit/'.$id);
         }
-        $mahasiswa_model = new Mahasiswa();
+        $mahasiswa_model = new MahasiswaModel();
         $data = [
             'npm' => $this->request->getVar('npm'),
             'nama' => $this->request->getVar('nama'),
